@@ -675,8 +675,6 @@ class PlexTV(object):
                         connections = d.getElementsByTagName('Connection')
 
                         for c in connections:
-                            logger.warn("Tautulli PlexTV :: 1")
-
                             if not all_servers:
                                 # If this is a remote server don't show any local IPs.
                                 if helpers.get_xml_attr(d, 'publicAddressMatches') == '0' and \
@@ -687,32 +685,8 @@ class PlexTV(object):
                                 if helpers.get_xml_attr(d, 'publicAddressMatches') == '1' and \
                                         helpers.get_xml_attr(c, 'local') == '0':
                                     continue
-                            logger.warn("Tautulli PlexTV :: 2" + plexpy.CONFIG.PMS_TOKEN + helpers.get_xml_attr(c, 'uri'))
-
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'clientIdentifier'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'clientIdentifier'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'name'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'address'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'port'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'uri'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'local'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'platform'))
-                            logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'productVersion'))
-                            logger.warn("Tautulli PlexTV :: 4" + plexpy.CONFIG.PMS_TOKEN)
 
 
-                            server = {'pms_ssl': 0,
-                                      'pms_identifier': helpers.get_xml_attr(d, 'clientIdentifier'),
-                                      'pms_name': helpers.get_xml_attr(d, 'name'),
-                                      'pms_ip': helpers.get_xml_attr(c, 'address'),
-                                      'pms_port': helpers.get_xml_attr(c, 'port'),
-                                      'pms_uri': helpers.get_xml_attr(c, 'uri'),
-                                      'pms_is_remote': 1,
-                                      'pms_platform': helpers.get_xml_attr(d, 'platform'),
-                                      'pms_version': helpers.get_xml_attr(d, 'productVersion'),
-                                      'pms_is_cloud': 0,
-                                      'pms_token': plexpy.CONFIG.PMS_TOKEN,
-                                      }
                             server = {'pms_ssl': 1 if is_cloud else int(helpers.get_xml_attr(d, 'httpsRequired') or 0),
                                       'pms_identifier': helpers.get_xml_attr(d, 'clientIdentifier'),
                                       'pms_name': helpers.get_xml_attr(d, 'name'),
@@ -725,8 +699,6 @@ class PlexTV(object):
                                       'pms_is_cloud': int(is_cloud or 0),
                                       'pms_token': plexpy.CONFIG.PMS_TOKEN,
                                       }
-
-                            logger.warn("Tautulli PlexTV :: local")
 
                             pms_connect = pmsconnect.PmsConnect(url=server['pms_uri'], serverName=server['pms_name'])
                             pms_ssl_pref = pms_connect.get_server_pref('secureConnections')
