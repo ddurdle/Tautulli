@@ -101,7 +101,7 @@ class plexServers(object):
         return result
 
     def refresh(self):
-        logger.info("Tautulli Servers :: Servers refreshing...")
+        logger.info("Tautulli Servers :: Servers refreshing ...")
         thread_list = []
         new_servers = False
         logger.info("Tautulli Servers :: XYZ..." % str(plexpy.PLEXTV))
