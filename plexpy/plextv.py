@@ -673,9 +673,10 @@ class PlexTV(object):
                             continue
 
                         connections = d.getElementsByTagName('Connection')
-                        logger.warn("Tautulli PlexTV :: local")
 
                         for c in connections:
+                            logger.warn("Tautulli PlexTV :: local")
+
                             if not all_servers:
                                 # If this is a remote server don't show any local IPs.
                                 if helpers.get_xml_attr(d, 'publicAddressMatches') == '0' and \
