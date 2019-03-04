@@ -104,6 +104,7 @@ class plexServers(object):
         logger.info("Tautulli Servers :: Servers refreshing...")
         thread_list = []
         new_servers = False
+        logger.info("Tautulli Servers :: XYZ..." % str(plexpy.PLEXTV))
 
         if plexpy.PLEXTV:
             plextv_servers = plexpy.PLEXTV.get_servers_list(include_cloud=True, all_servers=False)
