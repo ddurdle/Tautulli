@@ -675,7 +675,7 @@ class PlexTV(object):
                         connections = d.getElementsByTagName('Connection')
 
                         for c in connections:
-                            logger.warn("Tautulli PlexTV :: local")
+                            logger.warn("Tautulli PlexTV :: 1")
 
                             if not all_servers:
                                 # If this is a remote server don't show any local IPs.
@@ -687,6 +687,7 @@ class PlexTV(object):
                                 if helpers.get_xml_attr(d, 'publicAddressMatches') == '1' and \
                                         helpers.get_xml_attr(c, 'local') == '0':
                                     continue
+                            logger.warn("Tautulli PlexTV :: 2")
 
                             server = {'pms_ssl': 1 if is_cloud else int(helpers.get_xml_attr(d, 'httpsRequired')),
                                       'pms_identifier': helpers.get_xml_attr(d, 'clientIdentifier'),
