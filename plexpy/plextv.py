@@ -654,7 +654,6 @@ class PlexTV(object):
         except Exception as e:
             logger.warn("Tautulli PlexTV :: Failed to get servers from plex: %s." % e)
             return []
-        logger.warn("Tautulli PlexTV :: local")
 
         for a in xml_head:
             if a.getAttribute('size'):
@@ -699,6 +698,7 @@ class PlexTV(object):
                                       'pms_is_cloud': int(is_cloud),
                                       'pms_token': plexpy.CONFIG.PMS_TOKEN,
                                       }
+                            logger.warn("Tautulli PlexTV :: local")
 
                             pms_connect = pmsconnect.PmsConnect(url=server['pms_uri'], serverName=server['pms_name'])
                             pms_ssl_pref = pms_connect.get_server_pref('secureConnections')
