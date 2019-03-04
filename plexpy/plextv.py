@@ -72,7 +72,7 @@ class PlexTV(object):
         base64string = base64.b64encode(('%s:%s' % (self.username, self.password)).encode('utf-8'))
         headers = {'Content-Type': 'application/xml; charset=utf-8',
                    'Authorization': 'Basic %s' % base64string}
-        
+
         request = self.request_handler.make_request(uri=uri,
                                                     request_type='POST',
                                                     headers=headers,
@@ -116,7 +116,7 @@ class PlexTV(object):
                     return None
             else:
                 logger.warn("Tautulli PlexTV :: No existing Tautulli device found.")
-        
+
         logger.info("Tautulli PlexTV :: Fetching a new Plex.tv token for Tautulli.")
         user = self.get_token()
         if user:
@@ -636,6 +636,8 @@ class PlexTV(object):
         request_handler = http_handler.HTTPHandler(urls='http://127.0.0.1:32400', timeout=1,
                                                    ssl_verify=False, silent=True)
         request = request_handler.make_request(uri='/identity', request_type='GET', output_format='xml')
+        logger.warn("Tautulli PlexTV :: local")
+
         if request:
             xml_head = request.getElementsByTagName('MediaContainer')[0]
             local_machine_identifier = xml_head.getAttribute('machineIdentifier')
@@ -645,7 +647,7 @@ class PlexTV(object):
                 conn = server.pop('connections')
                 local_server['pms_uri'] = conn[0]['uri']
                 local_server.update(server)
-
+        logger.warn("Tautulli PlexTV :: local")
         servers = self.get_plextv_resources(include_https=True, output_format='xml')
         clean_servers = []
 
