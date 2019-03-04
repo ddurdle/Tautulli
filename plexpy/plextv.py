@@ -711,7 +711,7 @@ class PlexTV(object):
                                       'pms_is_remote': int(not int(helpers.get_xml_attr(c, 'local'))),
                                       'pms_platform': helpers.get_xml_attr(d, 'platform'),
                                       'pms_version': helpers.get_xml_attr(d, 'productVersion'),
-                                      'pms_is_cloud': int(is_cloud),
+                                      'pms_is_cloud': 0,
                                       'pms_token': plexpy.CONFIG.PMS_TOKEN,
                                       }
 
