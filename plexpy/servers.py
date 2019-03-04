@@ -107,6 +107,7 @@ class plexServers(object):
 
         if plexpy.PLEXTV:
             plextv_servers = plexpy.PLEXTV.get_servers_list(include_cloud=True, all_servers=False)
+
             if plextv_servers:
                 for server in plextv_servers:
                     pmsServer = self.get_server_by_identifier(server['pms_identifier'])
@@ -409,7 +410,7 @@ class plexServer(object):
          Server Status:
             0 - Server not enabled
             1 - Server enabled and functioning
-            2 - 
+            2 -
             3 - Server not connected
         """
         server_status['server_status'] = (0 if not self.CONFIG.PMS_IS_ENABLED else
