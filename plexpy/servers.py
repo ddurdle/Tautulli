@@ -107,6 +107,7 @@ class plexServers(object):
 
         if plexpy.PLEXTV:
             plextv_servers = plexpy.PLEXTV.get_servers_list(include_cloud=True, all_servers=False)
+            logger.info("Tautulli Servers :: XYZ..." % str(plextv_servers))
 
             if plextv_servers:
                 for server in plextv_servers:
