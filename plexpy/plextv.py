@@ -698,11 +698,11 @@ class PlexTV(object):
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'local'))
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'platform'))
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'productVersion'))
-                            logger.warn("Tautulli PlexTV :: 3" + int(not int(helpers.get_xml_attr(c, 'httpsRequired'))))
+                            logger.warn("Tautulli PlexTV :: 3" + 0)
                             logger.warn("Tautulli PlexTV :: 4" + plexpy.CONFIG.PMS_TOKEN)
 
 
-                            server = {'pms_ssl': int(helpers.get_xml_attr(d, 'httpsRequired')),
+                            server = {'pms_ssl': 0,
                                       'pms_identifier': helpers.get_xml_attr(d, 'clientIdentifier'),
                                       'pms_name': helpers.get_xml_attr(d, 'name'),
                                       'pms_ip': helpers.get_xml_attr(c, 'address'),
