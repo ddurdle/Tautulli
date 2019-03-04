@@ -698,7 +698,7 @@ class PlexTV(object):
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'local'))
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'platform'))
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'productVersion'))
-                            #logger.warn("Tautulli PlexTV :: 3" + int(is_cloud))
+                            logger.warn("Tautulli PlexTV :: 3" + int(not int(helpers.get_xml_attr(c, 'local'))))
                             logger.warn("Tautulli PlexTV :: 4" + plexpy.CONFIG.PMS_TOKEN)
 
 
