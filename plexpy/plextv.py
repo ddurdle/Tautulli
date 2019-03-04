@@ -673,6 +673,7 @@ class PlexTV(object):
                             continue
 
                         connections = d.getElementsByTagName('Connection')
+                        logger.warn("Tautulli PlexTV :: local")
 
                         for c in connections:
                             if not all_servers:
@@ -698,6 +699,7 @@ class PlexTV(object):
                                       'pms_is_cloud': int(is_cloud),
                                       'pms_token': plexpy.CONFIG.PMS_TOKEN,
                                       }
+                            logger.warn("Tautulli PlexTV :: local")
 
                             pms_connect = pmsconnect.PmsConnect(url=server['pms_uri'], serverName=server['pms_name'])
                             pms_ssl_pref = pms_connect.get_server_pref('secureConnections')
