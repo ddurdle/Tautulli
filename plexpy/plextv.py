@@ -698,8 +698,8 @@ class PlexTV(object):
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'local'))
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'platform'))
                             logger.warn("Tautulli PlexTV :: 2" + helpers.get_xml_attr(c, 'productVersion'))
-                            logger.warn("Tautulli PlexTV :: 2" + int(is_cloud))
-                            logger.warn("Tautulli PlexTV :: 2" + plexpy.CONFIG.PMS_TOKEN)
+                            #logger.warn("Tautulli PlexTV :: 3" + int(is_cloud))
+                            logger.warn("Tautulli PlexTV :: 4" + plexpy.CONFIG.PMS_TOKEN)
 
 
                             server = {'pms_ssl': 1 if is_cloud else int(helpers.get_xml_attr(d, 'httpsRequired')),
