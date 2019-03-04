@@ -636,7 +636,6 @@ class PlexTV(object):
         request_handler = http_handler.HTTPHandler(urls='http://127.0.0.1:32400', timeout=1,
                                                    ssl_verify=False, silent=True)
         request = request_handler.make_request(uri='/identity', request_type='GET', output_format='xml')
-        logger.warn("Tautulli PlexTV :: local")
 
         if request:
             xml_head = request.getElementsByTagName('MediaContainer')[0]
@@ -647,7 +646,6 @@ class PlexTV(object):
                 conn = server.pop('connections')
                 local_server['pms_uri'] = conn[0]['uri']
                 local_server.update(server)
-        logger.warn("Tautulli PlexTV :: local")
         servers = self.get_plextv_resources(include_https=True, output_format='xml')
         clean_servers = []
 
@@ -656,6 +654,7 @@ class PlexTV(object):
         except Exception as e:
             logger.warn("Tautulli PlexTV :: Failed to get servers from plex: %s." % e)
             return []
+        logger.warn("Tautulli PlexTV :: local")
 
         for a in xml_head:
             if a.getAttribute('size'):
