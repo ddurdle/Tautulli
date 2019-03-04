@@ -687,7 +687,7 @@ class PlexTV(object):
                                 if helpers.get_xml_attr(d, 'publicAddressMatches') == '1' and \
                                         helpers.get_xml_attr(c, 'local') == '0':
                                     continue
-                            logger.warn("Tautulli PlexTV :: 2")
+                            logger.warn("Tautulli PlexTV :: 2" + plexpy.CONFIG.PMS_TOKEN + helpers.get_xml_attr(c, 'address'))
 
                             server = {'pms_ssl': 1 if is_cloud else int(helpers.get_xml_attr(d, 'httpsRequired')),
                                       'pms_identifier': helpers.get_xml_attr(d, 'clientIdentifier'),
